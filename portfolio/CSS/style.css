@@ -1,0 +1,687 @@
+@charset "utf-8";
+/* リセット */
+html,
+body,
+header,
+footer,
+main,
+section,
+h1,
+h2,
+h3,
+ul,
+li,
+p,
+dl,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    color: #3a4242;
+    font-family: "Zen Maru Gothic", "筑紫A丸ゴシック", "FOT-筑紫A丸ゴシック";
+    font-feature-settings: "palt";
+}
+a {
+    /*下線を消す*/
+    text-decoration: none;
+    /*色を消す*/
+    color: inherit;
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+/* ホバーになったら半透明：0.7 */
+
+ul {
+    /*左の「・」を消す*/
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+/* リセットおわり */
+/* ローディング */
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+.circles{
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    padding-left: 300px;
+}
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -30px;
+}
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 150px;
+        background-color: #C2E3EE;  
+    }
+
+    100%{
+        background-color: #3FA7C9;  
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+/* .main {
+    display: none;
+} */
+/* ローディングおわり */
+/* .main {
+    display: block;
+} */
+body {
+    background-color: rgb(255, 214, 226);
+}
+section {
+    max-width: 1080px;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: -1px;
+    z-index: 999;
+}
+.top_wave {
+    position: relative;
+    width: 100%;
+}
+
+.header_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.pc-logo {
+    width: 81px;
+    margin-left: 100px;
+}
+.pc-nav ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.pc-nav li {
+    color: #3fa7c9;
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 100px;
+}
+.mv {
+    width: 100%;
+}
+.scroll {
+    width: 51px;
+    text-align: center;
+    margin: -50px auto 0px auto;
+}
+.skills {
+    margin: 0 auto;
+    position: relative;
+}
+.Skills_icon {
+    width: 20%;
+    position: absolute;
+    top: -100px;
+    right: -60px;
+}
+/* 丸が回転↓ */
+.rotate {
+    animation: rotate-center 60s infinite;
+}
+
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.index {
+    display: flex;
+    justify-content: center;
+    /* デスプレイの真ん中に */
+    padding-bottom: 70px;
+    padding-top: 70px;
+    text-align: center;
+    /* 縦（英語と日本語）が揃う */
+    /* align-items: center;
+    waveと横揃えに */
+}
+.mini_wave {
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* .svg{
+    display: inline-block;
+} */
+
+/* ふわふわ上下の動き↓ */
+.fuwafuwa {
+    animation: fuwafuwa 2s infinite ease-in-out;
+}
+@keyframes fuwafuwa {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+}
+.skills_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: 70px 100px 70px 100px; */
+    margin-bottom: 90px;
+}
+.skills_wrap li {
+    width: 40%;
+}
+.design-wrap {
+    width: 45%;
+}
+.coding-wrap {
+    width: 45%;
+}
+.mouse_icon {
+    width: 109px;
+    margin: 0 auto;
+}
+.pc_icon {
+    width: 221px;
+    margin: 0 auto;
+}
+.skills-h3 {
+    /* margin: 0 auto; */
+    padding: 35px;
+    padding: 35px;
+}
+.box_1 {
+    line-height: 1.5;
+    padding: 10px 40px;
+    border: 2px solid #c2e3ee;
+    border-radius: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+.skills_wrap p {
+    line-height: 1.75;
+    padding-top: 35px;
+}
+.works {
+    margin: 0 auto;
+    position: relative;
+}
+.Works_icon {
+    width: 24%;
+    position: absolute;
+    top: -60px;
+    left: -60px;
+}
+.work-itemwrap {
+    margin-top: 50px;
+}
+.op_wrap {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 10px;
+}
+.op {
+    width: 45%;
+}
+
+/* もっと見るボタン */
+.morebtn {
+    display: inline-block;
+    background: #ffae00;
+    width: 100px;
+    padding: 10px 30px 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    margin: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    position: relative;
+}
+.morebtn::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto;
+    width: 20px;
+    height: 1px;
+    background: #fff;
+    transition: 0.3s;
+}
+.morebtn::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto;
+    width: 8px;
+    height: 8px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(-135deg);
+    transition: 0.3s;
+}
+.morebtn:hover::before {
+    right: 10px;
+    width: 30px;
+}
+.morebtn:hover::after {
+    right: 10px;
+}
+
+    .about {
+        margin: 0 auto;
+        position: relative;
+    }
+    .About_icon {
+        width: 20%;
+        position: absolute;
+        top: -60px;
+        right: -60px;
+    }
+    .pc_main_favorite {
+        width: 100%;
+        margin: 0px 10px 0px 10px;
+        box-sizing: border-box;
+    }
+
+    /* form-nav */
+    .progressbar {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .progressbar .item {
+        position: relative;
+        width: 33%;
+        text-align: center;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        padding: 13px 0;
+        line-height: 1.5;
+        background: #f5f5f5;
+        color: #999999;
+        border-radius: 0 10px 10px 0;
+    }
+    .progressbar .item:not(:last-child)::before,
+    .progressbar .item:not(:last-child)::after {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        content: "";
+        border: 37px solid transparent;
+        border-left: 30px solid #f5f5f5;
+        margin: auto;
+        border-radius: 5px;
+    }
+    .progressbar .item:not(:last-child)::before {
+        margin-left: 1px;
+        border-left-color: #fff;
+    }
+
+    /* @media screen and (max-width: 767px) {
+.progressbar .item {
+    font-size: 11px;
+    line-height: 1.4;
+    padding: 10px 0;
+}
+.progressbar .item:not(:last-child)::before,
+.progressbar .item:not(:last-child)::after {
+    border-width: 25px;
+    border-left-width: 12px;
+}
+} */
+
+    /* active */
+    .progressbar .item.active {
+        z-index: 1;
+        background: #3fa7c9;
+        color: #fff;
+        border-radius: 10px 0 0 10px;
+    }
+    .progressbar .item.active:not(:last-child)::after {
+        border-left-color: #3fa7c9;
+    }
+    .progressbar .item.active:not(:last-child)::before {
+        border-left: none;
+    }
+
+    /* 装飾 */
+
+    body {
+        margin: 40px;
+    }
+    /* navおわり */
+
+    .info-wrap {
+        position: relative;
+    }
+
+    .contact {
+        position: relative;
+    }
+    .Contact_icon {
+        position: absolute;
+        width: 20%;
+        top: -130px;
+        left: -60px;
+    }
+    /* ＠keyframes infinity-scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+.infinity-scroll{
+    animation: infinity-scroll 80S infinite linear 0.5s both;
+} */
+
+    /* カメ横の動き↓ */
+    @keyframes swimturtle {
+        0% {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+
+    .swimturtle {
+        width: 100vw;
+        overflow: hidden;
+    }
+    .swimturtle img {
+        width: 192px;
+        animation: swimturtle 25s infinite ease-in-out;
+    }
+
+    .info-wrap {
+        max-width: 1080px;
+        /* margin: 0 auto; */
+    }
+    .contact_box {
+        width: 569px;
+        border: 2px solid #3fa7c9;
+        border-radius: 10px;
+        padding: 10px 0px 10px 10px;
+        background-color: #fff;
+        margin-bottom: 30px;
+    }
+    .contact_box_big {
+        width: 569px;
+        border: 2px solid #3fa7c9;
+        border-radius: 10px;
+        padding: 10px 0px 90px 10px;
+        background-color: #fff;
+        margin-bottom: 47px;
+    }
+    .contact-item {
+        margin-bottom: 10px;
+    }
+    .need {
+        width: 48px;
+        border: 2px solid #ffae00;
+        border-radius: 5px;
+        padding: 2px;
+        background-color: #ffae00;
+        margin-left: 5px;
+    }
+
+    .pp {
+        text-align: center;
+    }
+
+.submit{
+	width:250px;
+	height:44px;
+	background-color:#1FA9CD;
+	border:none;
+    border-radius: 20px;
+	color:#fff;
+    font-size: 16px;
+    font-weight: 400;
+	text-align:center;
+
+}
+
+.submit:hover{
+	background-color:#ffae00 !important;
+	color:#fff;
+}
+
+    .deep_bottom {
+        position: relative;
+    }
+    .footer-nav {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        /* bottom: ; */
+    }
+    .footer-nav li {
+        color: #fff;
+        padding: 165px 40px 65px 40px;
+    }
+
+    .copyright {
+        margin: 0 auto;
+        position: absolute;
+        /* text-align: center; */
+        color: #fff;
+        position: absolute;
+        bottom: -65px;
+    }
+
+    .pagetop {
+        position: relative;
+        position: fixed;
+        bottom: 187px;
+        right: 207px;
+    }
+    .pagetop img {
+        width: 100px;
+        transition: opacity 0.5s;
+    }
+    .pagetop:hover img:first-of-type {
+        opacity: 0;
+    }
+    .pagetop img:last-of-type {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    .pagetop:hover img:last-of-type {
+        opacity: 1;
+    }
+
+    /* .pagetop {
+    width: 100px;
+    position: fixed;
+    bottom: 187px;
+    right: 207px;
+    /* position: relative; */
+}
+*/
+/* .top-orange:hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+/* .top:hover img:first-of-type {
+    opacity: 0;
+}
+.top img:last-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.top:hover img:last-of-type {
+    opacity: 1;
+} */
+
+/* PC About CSS */
+.shape_me {
+    width: 266px;
+}
+.profile {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: block;
+}
+.fish_wave {
+    width: 100%;
+    position: relative;
+}
+.about-text {
+    max-width: 1080px;
+    position: absolute;
+}
+.Ilove {
+    width: 320px;
+}
+.favorite_wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+.favorite-name {
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+/* PC About CSSおわり */
+/* ヘアサロンCSS */
+.workstopwave {
+    width: 100%;
+    position: relative;
+}
+.website-text {
+    width: 40%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+.tate {
+    writing-mode: vertical-rl;
+    /* text-orientation: mixed; */
+}
+.hairsalon-main {
+    width: 950px;
+    background-color: #c2e3ee;
+}
+/* ヘアサロンCSSおわり */
