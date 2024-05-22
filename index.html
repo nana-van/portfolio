@@ -7,8 +7,13 @@
     <title>サリバン奈々子 Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="images/svg" href="images/PC_logo.svg">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- jQueryの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85188/jquery.wavify.js"></script>
 </head>
 
 <body>
@@ -24,8 +29,7 @@
             <li></li>
             <li></li>
         </ul>
-
-        <div class="loader"><img src="images/pc_lord@2x.png" alt="パスの波"></div>
+        <p class="loader"><img src="images/pc_lord@2x.png" alt="パスの波"></p>
     </div>
 
     <main class="main">
@@ -43,11 +47,19 @@
                         <li><a href="#contact">CONTACT</a></li>
                     </ul>
                 </nav>
+                <nav class="sp-nav">
+                    <ul>
+                        <li><a href="#skills">SKILLS</a></li>
+                        <li><a href="#works">WORKS</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
             </div>
         </header>
 
 
-        <div class="mv">
+        <div class="mv slide-bottom show">
             <img src="images/mv@2x-100.jpg" alt="ヤシの木の写真">
         </div>
         <div class="scroll fuwafuwa">
@@ -93,9 +105,11 @@
                         <img src="images/mouse_icon@2x.png" alt="マウスのイラスト画像">
                     </div>
                     <h3 class="skills-h3">デザイン</h3>
-                    <span class="box_1">PhotoShop</span>
-                    <span class="box_1">Illustrator</span>
-                    <span class="box_1">Figma</span>
+                    <div class="box_1wrap">
+                        <span class="box_1">PhotoShop</span>
+                        <span class="box_1">Illustrator</span>
+                        <span class="box_1">Figma</span>
+                    </div>
                     <p>画像の色調補正、加工を行えます。ご要望に基づいてバナーや、ワイヤーフレーム・デザインカンプの作成が可能です。見栄えも大切ですが、目的を達成できるデザインを心がけています。使いやすいUIを意識して最適な提案をさせていただきます。
                     </p>
                 </li>
@@ -104,14 +118,28 @@
                         <img src="images/pc_icon@2x.png" alt="パソコンのイラスト画像" class="pc_icon">
                     </div>
                     <h3 class="skills-h3">コーディング</h3>
-                    <span class="box_1">HTML</span>
-                    <span class="box_1">CSS</span><br>
-                    <span class="box_1">jQuery</span>
+                    <div class="box_1wrap">
+                        <span class="box_1">HTML</span>
+                        <span class="box_1">CSS</span><br>
+                        <span class="box_1">jQuery</span>
+                    </div>
                     <p>VSCodeを使用して、PCやスマートフォン用のWebサイト制作ができます。jQueryを使用した動きのあるサイトも、コーディング可能です。</p>
                 </li>
             </ul>
         </section>
-        <img src="images/mini_bottom@2x.png" alt="波の画像">
+        <!-- 波のアニメ -->
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(63,167,201,0.7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(194,227,238,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(118,213,223,0.3)" />
+            </g>
+        </svg>
+
         <!-- ワーク -->
         <section class="works" id="works">
             <p class="Works_icon rotate">
@@ -136,31 +164,31 @@
                         <p>デザイン</p>
                     </li>
                     <li class="op">
-                        <img src="images/cafesite@2x.png" alt="パソコンの枠内にカフェのウェブサイト画像">
+                        <a href="cafe.html"><img src="images/cafesite@2x.png" alt="パソコンの枠内にカフェのウェブサイト画像"></a>
                         <p class="works-title">Cafe LPサイト(課題)</p>
                         <p>コーディング</p>
                     </li>
                 </ul>
                 <ul class="op_wrap">
                     <li class="op">
-                        <img src="images/programming@2x.png" alt="プログラミングスクールのバナー画像">
+                        <a href=""><img src="images/programming@2x.png" alt="プログラミングスクールのバナー画像"></a>
                         <p class="works-title">プログラミング教室 バナー</p>
                         <p>デザイン</p>
                     </li>
                     <li class="op">
-                        <img src="images/naturaloil@2x.png" alt="化粧品のバナー画像">
+                        <a href=""><img src="images/naturaloil@2x.png" alt="化粧品のバナー画像"></a>
                         <p class="works-title">化粧品バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
                 </ul>
                 <ul class="op_wrap">
                     <li class="op">
-                        <img src="images/donuts@2x.png" alt="ドーナッツのキャンペーンバナー画像">
+                        <a href=""><img src="images/donuts@2x.png" alt="ドーナッツのキャンペーンバナー画像"></a>
                         <p class="works-title">新商品バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
                     <li class="op">
-                        <img src="images/sarada@2x.png" alt="サラダ特集のバナー画像">
+                        <a href=""><img src="images/sarada@2x.png" alt="サラダ特集のバナー画像"></a>
                         <p class="works-title">特集バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
@@ -168,19 +196,19 @@
 
                 <ul class="op_wrap">
                     <li class="op">
-                        <img src="images/uruoi@2x.png" alt="うるおい化粧品のバナー画像">
+                        <a href=""><img src="images/uruoi@2x.png" alt="うるおい化粧品のバナー画像"></a>
                         <p class="works-title">商品バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
                     <li class="op">
-                        <img src="images/season_fg@2x.png" alt="季節別バナー画像">
+                        <a href=""><img src="images/season_fg@2x.png" alt="季節別バナー画像"></a>
                         <p class="works-title">季節別バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
                 </ul>
                 <ul class="op_wrap">
                     <li class="op">
-                        <img src="images/curry_fg@2x.png" alt="カレーのバナー画像">
+                        <a href=""><img src="images/curry_fg@2x.png" alt="カレーのバナー画像"></a>
                         <p class="works-title">食品バナー（トレース課題）</p>
                         <p>デザイン</p>
                     </li>
@@ -215,9 +243,9 @@
 
 
             <div class="pc_main_favorite">
-                <a href="about.html"><img src="images/pc_main@2x.png" alt="私の好きなものたち"></a>
+                <img src="images/pc_main@2x.png" alt="私の好きなものたち">
             </div>
-            <a href="" class="morebtn">もっと見る</a>
+            <a href="about.html" class="morebtn">もっと見る</a>
             <div class="waving">
             </div>
 
@@ -250,20 +278,21 @@
             <div class="info-wrap">
                 <form action="" name="入力画面" class="info-wrap">
                     <div class="contact-item"><label>お名前</label><span class="need">必須</span></div>
-                    <div class="contact_box"><input type="text" placeholder="お名前"></div>
+                    <input type="text" placeholder="お名前" class="contact_box">
 
                     <div class="contact-item"><label>フリガナ</label></div>
-                    <div class="contact_box"><input type="text" placeholder="フリガナ"></div>
+                    <input type="text" placeholder="フリガナ" class="contact_box">
 
                     <div class="contact-item"><label>メールアドレス</label><span class="need">必須</span></div>
-                    <div class="contact_box"><input class="text" placeholder="info@gmail.com"></div>
+                    <input type="text" placeholder="info@gmail.com" class="contact_box">
 
                     <div class="contact-item"><label>お問い合わせ内容</label><span class="need">必須</span></div>
-                    <div class="contact_box_big"><input class="text" placeholder="お問い合わせ内容を入力してください"></div>
-                    <p class="pp"><a href="">プライバシーポリシー</a></p>
+                    <input type="text" placeholder="お問い合わせ内容を入力してください" class="contact_box_big">
 
-                    <button type="submit" class="submit">送信</button>
-
+                    <p class="ppagree"><input type="checkbox" name="with-consent" id="with-consent">
+                        <label for="with-consent"><a href="privacypolicy.html">プライバシーポリシー</a>に同意する</label>
+                    </p>
+                    <button type="submit" class="submit" disabled id="submit">送信</button>
                 </form>
             </div>
 
@@ -271,7 +300,6 @@
         </section>
         <!-- フッター -->
         <div class="footer" id="footer">
-            <p class="deep_bottom"><img src="images/deep_bottom@2x.png" alt="水深が深い波のイラスト"></p>
             <ul class="footer-nav">
                 <li><a href="#skills">SKILLS</a></li>
                 <li><a href="#works">WORKS</a></li>
@@ -279,6 +307,9 @@
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="copyright">&copy; 2024 Nanako Sullivan</div>
+            <div id="canvas-container">
+                <canvas id="sineCanvas"></canvas>
+            </div>
         </div>
 
         <div class="pagetop">
@@ -296,19 +327,12 @@
 
     <script>
         $(function () {
-            //読み込みが完了したら実行する
-            $(window).on('load', function () {
-                //ローディングアニメーションをフェードアウト
-                $('.loading-content').delay(600).fadeOut(600);
-                //背景色をフェードアウト
-                $('.loading-content').delay(900).fadeOut(800);
-            });
-
-            //ページの読み込みが完了してなくても5秒後にアニメーションを非表示にする
+            //ロ➖ド上5秒後にアニメーションを非表示にする
             setTimeout(function () {
                 $('.loading-content').fadeOut(600);
             }, 5000);
         });
+
 
         // アコーディオン
         var contentsCount = $(".op_wrap").length;
@@ -328,8 +352,129 @@
                     $(this).text('もっと見る');
                 }
             });
+
+            // チェックボックスにチェックしないと送信できない
+            // "#with-consent"というIDを持つ要素をドキュメントから取得し、consentという定数に保存します
+            const consent = document.querySelector("#with-consent");
+
+            // "#submit"というIDを持つ要素をドキュメントから取得し、buttonという定数に保存します
+            const button = document.querySelector("#submit");
+
+            // consent要素の状態が変化したときに実行されるイベントリスナーを追加します
+            consent.addEventListener('change', () => {
+
+                // consent要素がチェックされているかどうかを確認します
+                if (consent.checked === true) {
+                    // チェックが入っていれば、submitボタンを有効化します
+                    button.disabled = false;
+                } else {
+                    // チェックが入っていなければ、submitボタンを無効化します
+                    button.disabled = true;
+                }
+            });
+            $(window).on('load scroll', function () {
+                var winScroll = $(window).scrollTop();
+                var winHeight = $(window).height();
+                var scrollPos = winScroll + (winHeight * 0.8);
+
+                $(".show").each(function () {
+                    if ($(this).offset().top < scrollPos) {
+                        $(this).css({ opacity: 1, transform: 'translate(0, 0)' });
+                    }
+                });
+            });
+            (function () {
+
+                var unit = 100,
+                    canvas, context, canvas2, context2,
+                    height, width, xAxis, yAxis,
+                    draw;
+
+                // フッターanimation
+                /**
+                 * Init function.
+                 * 
+                 */
+                function init() {
+
+                    canvas = document.getElementById("sineCanvas");
+                    canvas.width = document.documentElement.clientWidth; //Canvasのwidthをウィンドウの幅に合わせる
+                    canvas.height = 300;
+                    context = canvas.getContext("2d");
+                    height = canvas.height;
+                    width = canvas.width;
+                    xAxis = Math.floor(height / 2);
+                    yAxis = 0;
+
+                    draw();
+                }
+
+                /**
+                 * Draw animation function.
+                 * 
+                 * This function draws one frame of the animation, waits 20ms, and then calls
+                 * itself again.
+                 */
+                function draw() {
+
+                    // キャンバスの描画をクリア
+                    context.clearRect(0, 0, width, height);
+
+                    //波を描画
+                    drawWave('#3FA7C9', 1, 3, 0);
+
+                    // Update the time and draw again
+                    draw.seconds = draw.seconds + .009;
+                    draw.t = draw.seconds * Math.PI;
+                    setTimeout(draw, 35);
+                };
+                draw.seconds = 0;
+                draw.t = 0;
+
+                /**
+                * 波を描画
+                * drawWave(色, 不透明度, 波の幅のzoom, 波の開始位置の遅れ)
+                */
+                function drawWave(color, alpha, zoom, delay) {
+                    context.fillStyle = color;
+                    context.globalAlpha = alpha;
+
+                    context.beginPath(); //パスの開始
+                    drawSine(draw.t / 0.5, zoom, delay);
+                    context.lineTo(width + 10, height); //パスをCanvasの右下へ
+                    context.lineTo(0, height); //パスをCanvasの左下へ
+                    context.closePath() //パスを閉じる
+                    context.fill(); //塗りつぶす
+                }
+
+                /**
+                 * Function to draw sine
+                 * 
+                 * The sine curve is drawn in 10px segments starting at the origin. 
+                 * drawSine(時間, 波の幅のzoom, 波の開始位置の遅れ)
+                 */
+                function drawSine(t, zoom, delay) {
+
+                    // Set the initial x and y, starting at 0,0 and translating to the origin on
+                    // the canvas.
+                    var x = t; //時間を横の位置とする
+                    var y = Math.sin(x) / zoom;
+                    context.moveTo(yAxis, unit * y + xAxis); //スタート位置にパスを置く
+
+                    // Loop to draw segments (横幅の分、波を描画)
+                    for (i = yAxis; i <= width + 10; i += 10) {
+                        x = t + (-yAxis + i) / unit / zoom;
+                        y = Math.sin(x - delay) / 3;
+                        context.lineTo(i, unit * y + xAxis);
+                    }
+                }
+
+                init();
+                // フッターアニメ◀︎
+
+            })();
+
         }
-        });
     </script>
 </body>
 

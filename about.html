@@ -11,16 +11,42 @@
 </head>
 
 <body>
-    <li class="profile" id="about.html">
-        <ul class="shape_me">
-            <img src="images/shape_me@2x.png" alt="流体シェイプと私の画像">
-        </ul>
+    <input type="checkbox" id="drawer">
+    <label for="drawer" class="drawer-open"><span></span></label>
+    <label for="drawer" class="drawer-close"></label>
+    <nav class="menu">
         <ul>
-            <img src="images/mini_wave@2x.png" alt="小さい波のアイコンイラスト" class="mini_wave">
-            <h2>Nanako Sullivan</h2>
-            <p>サリバン 奈々子</p>
+            <li><a href="index.html#header">HOME</a></li>
+            <li><a href="index.html#skills">SKILLS</a></li>
+            <li><a href="index.html#works">WORKS</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
         </ul>
-    </li>
+    </nav>
+
+    <div class="profile" id="about.html">
+        <ul>
+            <li class="mewrap">
+                <div class="shape">
+                    <img src="images/shape@2x.png" alt="流体シェイプの画像">
+                </div>
+                <div class="me">
+                    <img src="images/me@2x.png" alt="私の画像">
+                </div>
+            </li>
+            <li class="about-right">
+                <img src="images/mini_wave@2x.png" alt="小さい波のアイコンイラスト" class="mini_wave">
+                <h2 class="name-eg">Nanako Sullivan</h2>
+                <p class="name-jp">サリバン 奈々子</p>
+            </li>
+        </ul>
+    </div>
+    <div class="swimturtle">
+        <img src="images/turtle.gif" alt="亀が泳いでるアニメーション">
+    </div>
+    <div class="webdesigner_icon rotate">
+        <img src="images/webdesigner@2x.png" alt="丸にwebdesignerのセクションアイコン">
+    </div>
+
     <div>
         <p class="fish_wave">
             <img src="images/fish_wave@2x.png" alt="魚の形の波">
@@ -33,17 +59,27 @@
         </p>
     </div>
     <div class="favorite_wrap">
-        <img src="images/Ilove@2x.png" alt="Iloveのスクリプト体画像" class="Ilove">
-        <p class="pc_about_favorite">
-            <img src="images/pc_about_favorite@2x.png" alt="私の好きなものたち">
-        </p>
+        <div class="Ilove">
+            <img src="images/Ilove@2x.png" alt="Iloveのスクリプト体画像">
+        </div>
+        <div class="pc_about_favorite">
+            <img src="images/PC_about_favorite@2x.png" alt="私の好きなものたち">
+        </div>
         <p class="favorite-name">
             カメ*お祭り*どうぶつの森*メッツ*ハッピーターン*釣り*マヨネーズ*クッキーアンドクリームアイス*インドカレー*スノーボード*スムージー*大葉*梅*ナンジャモンジャ*力水*ペヤング*かむくらラーメン*海外旅行*ドンタコス*電車
         </p>
     </div>
-    <p>
-        <img src="images/mini_bottom@2x.png" alt="波の画像">
-    </p>
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(63,167,201,0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(194,227,238,0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(118,213,223,0.3)" />
+        </g>
+    </svg>
 
 
 
