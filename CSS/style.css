@@ -20,6 +20,7 @@ dd {
     line-height: 1;
     color: #3a4242;
     font-family: "Zen Maru Gothic", "筑紫A丸ゴシック", "FOT-筑紫A丸ゴシック";
+    font-weight: lighter;
     font-feature-settings: "palt";
 }
 a {
@@ -39,16 +40,18 @@ ul {
     /*左の「・」を消す*/
     list-style: none;
 }
+/* リセットおわり */
+
+/* ローディング */
 
 img {
     max-width: 100%;
     vertical-align: bottom;
     border: none;
+    margin: 0 auto;
 }
-/* リセットおわり */
 
-/* ローディング */
-/* .loading-content {
+.loading-content {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -56,18 +59,22 @@ img {
     left: 0;
     z-index: 9999;
     background-color: #fff;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
-} */
+}
 
 /* 徐々に現れる波 */
 .loader {
     width: 250px;
+    height: 100%;
     white-space: nowrap;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
+    display: block;
+    display: flex;
+    align-items: center;
 }
 
 .loader::before {
@@ -89,8 +96,8 @@ img {
 .circles {
     top: 0;
     left: 0;
-    width: 50%;
-    height: 100%;
+    /* width: 50%; */
+    /* height: 100%; */
     overflow: hidden;
     padding-left: 300px;
 }
@@ -204,6 +211,9 @@ header {
     top: -1px;
     z-index: 999;
 }
+main {
+    overflow: hidden;
+}
 .top_wave {
     position: relative;
     width: 100%;
@@ -276,17 +286,34 @@ header {
     padding-top: 70px;
     text-align: center;
     /* 縦（英語と日本語）が揃う */
-    /* align-items: center;
-    waveと横揃えに */
+    align-items: center;
+    /* waveと横揃えに */
 }
 .mini_wave {
     width: 35px;
     margin-right: 10px;
+    overflow: hidden;
 }
 
-/* .svg{
-    display: inline-block;
-} */
+.mini_wave-img {
+    width: 100px;
+    max-width: none;
+    animation: return 8s infinite ease;
+}
+
+@keyframes return {
+    0% {
+        transform: translate(-50px, 0);
+    }
+    50% {
+        transform: translate(0px, 0);
+        /* （3秒の中で半分（1.5秒）経った時に一番右に行く地点） */
+    }
+    100% {
+        transform: translate(-50px, 0);
+        /* （元の位置に戻す） */
+    }
+}
 
 /* ふわふわ上下の動き↓ */
 .fuwafuwa {
@@ -317,12 +344,11 @@ header {
 .coding-wrap {
     width: 45%;
 }
-.skills-h3 {
-    text-align: center;
-}
 .box_1wrap {
-    text-align: center;
-    /* flex-wrap: wrap; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 10px;
 }
 
 .mouse_icon {
@@ -334,11 +360,14 @@ header {
     margin: 0 auto;
 }
 .skills-h3 {
+    text-align: center;
     /* margin: 0 auto; */
     padding: 35px;
     padding: 35px;
+    font-size: 24px;
 }
 .box_1 {
+    width: 47%;
     line-height: 1.5;
     padding: 10px 40px;
     border: 2px solid #c2e3ee;
@@ -346,6 +375,8 @@ header {
     background-color: #fff;
     display: inline-block;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: center;
 }
 .skills_wrap p {
     line-height: 1.75;
@@ -387,15 +418,6 @@ header {
         transform: translate3d(85px, 0, 0);
     }
 }
-/*Shrinking for mobile*/
-/* @media (max-width: 768px) {
-    .waves {
-    height:40px;
-    min-height:40px;
-    }
-    .content {
-    height:30vh;
-    } */
 /* 上の方波アニメーションおわり */
 
 .works {
@@ -411,6 +433,9 @@ header {
 .work-itemwrap {
     margin-top: 50px;
 }
+.work-itemwrap ul {
+    margin-bottom: 80px;
+}
 .op_wrap {
     display: flex;
     justify-content: space-between;
@@ -419,17 +444,22 @@ header {
 .op {
     width: 45%;
 }
+.op p {
+    margin-top: 10px;
+    margin-left: 10px;
+}
 
 /* もっと見るボタン */
 .morebtn {
-    display: inline-block;
+    display: block;
     background: #ffae00;
-    width: 100px;
-    padding: 10px 30px 10px 20px;
-    border-radius: 20px;
+    width: 200px;
+    padding: 15px 30px 15px 20px;
+    border-radius: 30px;
     text-align: center;
+    font-size: 16px;
     color: #fff;
-    margin: 5px;
+    margin: 50px auto;
     border: 1px solid;
     cursor: pointer;
     position: relative;
@@ -479,10 +509,6 @@ header {
     top: -60px;
     right: -60px;
 }
-/* .pc_main_favorite {
-        width: 100%;
-    } */
-
 /* form-nav */
 .progressbar {
     display: flex;
@@ -520,18 +546,55 @@ header {
     border-left-color: #fff;
 }
 
-/* @media screen and (max-width: 767px) {
+/* active */
+.progressbar .item.active {
+    z-index: 1;
+    background: #3fa7c9;
+    color: #fff;
+    border-radius: 10px 0 0 10px;
+}
+.progressbar .item.active:not(:last-child)::after {
+    border-left-color: #3fa7c9;
+}
+.progressbar .item.active:not(:last-child)::before {
+    border-left: none;
+}
+
+.progressbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .progressbar .item {
-    font-size: 11px;
-    line-height: 1.4;
-    padding: 10px 0;
+    position: relative;
+    width: 33%;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 0;
+    line-height: 1.5;
+    background: #f5f5f5;
+    color: #999999;
+    border-radius: 0 10px 10px 0;
 }
 .progressbar .item:not(:last-child)::before,
 .progressbar .item:not(:last-child)::after {
-    border-width: 25px;
-    border-left-width: 12px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    content: "";
+    border: 37px solid transparent;
+    border-left: 30px solid #f5f5f5;
+    margin: auto;
+    border-radius: 5px;
 }
-} */
+.progressbar .item:not(:last-child)::before {
+    margin-left: 1px;
+    border-left-color: #fff;
+}
 
 /* active */
 .progressbar .item.active {
@@ -546,12 +609,61 @@ header {
 .progressbar .item.active:not(:last-child)::before {
     border-left: none;
 }
+
 /* navおわり */
 
-/* .info-wrap {
+.progressbar2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 100px;
+}
+.progressbar2 .item {
     position: relative;
-    margin: 0 auto;
-} */
+    width: 33%;
+    text-align: center;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 0;
+    line-height: 1.5;
+    background: #3fa7c9;
+    color: #fff;
+    border-radius: 0 10px 10px 0;
+}
+.progressbar2 .item:not(:last-child)::before,
+.progressbar2 .item:not(:last-child)::after {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    content: "";
+    border: 37px solid transparent;
+    border-left: 30px solid #f5f5f5;
+    margin: auto;
+    border-radius: 5px;
+}
+.progressbar2 .item:not(:last-child)::before {
+    margin-left: 1px;
+    border-left-color: #fff;
+}
+
+/* active */
+.progressbar2 .item.active {
+    z-index: 1;
+    background: #f5f5f5;
+    color: #999999;
+    border-radius: 10px 0 0 10px;
+}
+.progressbar2 .item.active:not(:last-child)::after {
+    border-left-color: #f5f5f5;
+}
+.progressbar2 .item.active:not(:last-child)::before {
+    border-left: none;
+}
+
+/* nav2おわり */
 
 .contact {
     position: relative;
@@ -563,28 +675,8 @@ header {
     top: -130px;
     left: -60px;
 }
-/* ＠keyframes infinity-scroll {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-100%);
-    }
-}
-.infinity-scroll{
-    animation: infinity-scroll 80S infinite linear 0.5s both;
-} */
 
 /* カメ横の動き↓ */
-@keyframes swimturtle {
-    0% {
-        left: 100%;
-    }
-    to {
-        left: -192px;
-    }
-}
-
 .swimturtle {
     width: 100vw;
     overflow: hidden;
@@ -594,13 +686,21 @@ header {
     animation: swimturtle 80s infinite ease-in-out;
     position: relative;
 }
+@keyframes swimturtle {
+    0% {
+        left: 100%;
+    }
+    to {
+        left: -192px;
+    }
+}
 
 .info-wrap {
-    width: 583px;
+    max-width: 583px;
     margin: 0 auto;
 }
 .contact_box {
-    width: 569px;
+    width: 97.59%;
     border: 2px solid #3fa7c9;
     border-radius: 10px;
     padding: 10px 0px 10px 10px;
@@ -608,7 +708,7 @@ header {
     margin-bottom: 30px;
 }
 .contact_box_big {
-    width: 569px;
+    width: 97.59%;
     border: 2px solid #3fa7c9;
     border-radius: 10px;
     padding: 10px 0px 90px 10px;
@@ -703,8 +803,8 @@ form a:hover {
     color: #fff;
     font-size: 16px;
     font-weight: 400;
-    /* text-align: center; */
-    /* margin: 0 auto; */
+    display: block;
+    margin: 0 auto;
 }
 
 .submit:hover {
@@ -715,20 +815,22 @@ form a:hover {
 .footer {
     background-color: #c2e3ee;
     margin-top: 140px;
+    width: 100%;
 }
 .footer-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 432px;
-    margin: 0 auto;
-    /* position: absolute; 
-    left: 0px;
-    bottom: 160px; */
+    justify-content: center;
+    /* margin: 0 auto;
+    width: 43.2%; */
 }
+
 .footer-nav li {
     color: #222;
     padding: 165px 40px 65px 40px;
+    /* margin: 0 auto; */
+    align-items: center;
+    justify-content: center;
 }
 
 .copyright {
@@ -800,11 +902,11 @@ html {
 #drawer {
     display: none;
 }
-label {
+.hamburger-flex {
     cursor: pointer;
     position: fixed;
 }
-.drawer-open {
+.hamburger-flex {
     z-index: 2;
     top: 8px;
     right: 8px;
@@ -893,19 +995,20 @@ label {
     transition: background 0.6s;
 }
 .menu a:hover {
-    background: black;
+    background: #3fa7c9;
 }
 #drawer:checked ~ .menu {
     transform: none;
 }
 /* メニューnavおわり */
+
 .profile ul {
     display: flex;
     justify-content: space-between;
     padding-top: 100px;
 }
 .shape {
-    width: 400px;
+    width: 35%;
     position: absolute;
     top: 30px;
     left: 100px;
@@ -923,25 +1026,29 @@ label {
     width: 50%;
 }
 .me {
-    width: 200px;
+    width: 40%;
     position: relative;
+    bottom: 20px;
+    left: 30px;
     z-index: 999;
     margin: 0 auto;
 }
 .profile {
     max-width: 1080px;
+    position: relative;
     margin: 0 auto;
     display: block;
 }
 .webdesigner_icon {
-    width: 20%;
-    position: absolute;
-    top: 30px;
-    right: -100px;
+    width: 40%;
+    position: relative;
+    top: -300px;
+    right: -400px;
 }
 .about-right {
-    position: relative;
     width: 50%;
+    margin-top: 80px;
+    margin-left: 50px;
 }
 .name-eg {
     margin-top: 20px;
@@ -951,13 +1058,35 @@ label {
 .name-jp {
     font-size: 18px;
 }
+
+.decoration-line {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.decoration-line:before {
+    content: "";
+    display: block;
+    background-color: #626262;
+    width: 1px;
+    height: 206px;
+    position: absolute;
+    top: 50%;
+    right: -150px;
+    transform-origin: 0 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
 .about-text {
     max-width: 1080px;
+    line-height: 1.75;
+    text-align: justify;
     margin: 0 auto;
     position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
+    top: 40%;
+    left: 0%;
+    right: 0%;
 }
 .fish_wave {
     width: 100%;
@@ -965,16 +1094,16 @@ label {
 }
 .Ilove {
     position: absolute;
-    width: 30%;
-    bottom: -300px;
-    left: 30px;
+    width: 25%;
+    bottom: -130px;
+    left: 10%;
     z-index: 999;
 }
 .favorite_wrap {
     max-width: 1080px;
     margin: 0 auto;
 }
-.pc_about_favorite {
+.favorite_img {
     margin-top: 80px;
     position: relative;
 }
@@ -984,18 +1113,21 @@ label {
 }
 /* PC About CSSおわり */
 /* ヘアサロンCSS */
-.hairsalon-header {
+.worklink--body {
+    background-color: #fff;
+    position: absolute;
+}
+
+.worklink--header {
     width: 100%;
     position: relative;
 }
-.hairsalon-main {
-    width: 1080px;
+.worklink--main {
+    max-width: 1080px;
     background-color: #e8f4f7;
-    margin: -248px auto 0px auto;
+    margin: -248px auto 0 auto;
 }
-.hairsalon-body {
-    background-color: #fff;
-}
+
 /* .background-box {
     width: 1080px;
     height: auto;
@@ -1004,7 +1136,7 @@ label {
 .workstopwave {
     width: 100%;
 }
-.hairsalon-worksicon {
+.worklink-worksicon {
     width: 18%;
     position: absolute;
     top: 20px;
@@ -1015,29 +1147,55 @@ label {
 .website-textimg {
     width: 40%;
     position: absolute;
+    top: 0;
     right: 0;
     left: 0;
     margin: 0 auto;
 }
 .tate {
     writing-mode: vertical-rl;
-    padding-left: 10px;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    /* padding-left: 20px;
+    display: block;
+    /* padding-top: -2000px; */
+    /* /* position: absolute; */
+    /* left: 20px;
+    top: 300px;  */ */
 }
 
-.hairsalon img {
-    width: 87%;
+.LP-img {
+    width: 70%;
     margin: 0 auto;
-    text-align: center;
-    padding-top: 150px;
+    /* text-align: center; */
+    padding-top: 300px;
+    display: block;
+    position: relative;
+}
+.twobanner_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.banner-img {
+    width: 70%;
+    /* margin-top: 500px: */
+    /* text-align: center; */
+    /* align-items: center; */
+    padding-top: 300px;
+    display: block;
+    position: relative;
 }
 /* .hairsalon-main {
     width: 950px;
     background-color: #c2e3ee;
 } */
 .overview {
-    max-width: 1080px;
-    margin-top: 60px;
-    margin-left: 65px;
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 300px;
 }
 h3 span {
     background: linear-gradient(transparent 60%, #c2e3ee 60%);
@@ -1070,6 +1228,7 @@ h3 span {
 }
 .concept {
     margin-top: 55px;
+
 }
 .concept span {
     margin-bottom: 10px;
@@ -1078,6 +1237,16 @@ h3 span {
     padding-top: 23px;
     padding-bottom: 85px;
     max-width: 950px;
+}
+.workslink-wave {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+.worklink-turtle {
+    position: absolute;
+    bottom: 200px;
+    left: 0;
 }
 /* ヘアサロンCSSおわり */
 
@@ -1088,7 +1257,7 @@ h3 span {
     top: 0;
 }
 .pp-text {
-    margin-top: 111px;
+    margin-top: 80px;
 }
 .privacypolicy-body p {
     max-width: 840px;
@@ -1097,9 +1266,202 @@ h3 span {
 }
 /* プライバシーポリシーおわり */
 
-/*　画面サイズ768px以下になったらタテに戻って横幅100%になる　*/
+/* 問い合わせ完了 */
+.thankyou-text{
+    text-align: center;
+}
+.thankyou-text p{
+margin: 100px auto;
+font-size: 18px;
+}
+
+.thankyou-body svg{
+    position: fixed;
+    bottom: 0;
+}
+.hamburger,
+.sp-nav {
+    display: none;
+}
+/*　画面サイズ768px以下になったらタテに戻って横幅100%になる/////////////////////////////　*/
 @media screen and (max-width: 767px) {
-    .pc-nav {
+    .pc-nav,
+    .top_wave,
+    .pc-logo {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        height: 33px;
+        cursor: pointer;
+        /* aじゃない押せる場所 */
+        z-index: 9999;
+        /* positionがあるCSSに対して重なり順を指定_数字が大きい程上 */
+    }
+    .hamburger span {
+        background: #fff;
+        display: block;
+        width: 33px;
+        height: 3px;
+        position: relative;
+        top: 10px;
+        transition: 0.3s;
+        /* 変化があるなら0.3秒アニメーションして */
+    }
+    .hamburger span::before,
+    .hamburger span::after {
+        content: "";
+        background: #fff;
+        display: block;
+        width: 33px;
+        height: 3px;
+        position: absolute;
+        transition: 0.3s;
+        /* 変化があるなら0.3秒アニメーションして */
+    }
+
+    .hamburger span::before {
+        bottom: 10px;
+    }
+    .hamburger span::after {
+        top: 10px;
+    }
+    .open span {
+        background: transparent;
+        /* 背景透明 */
+    }
+
+    .open span::before {
+        bottom: 0px;
+        transform: rotate(45deg);
+        /* 45度と回してバツを作る */
+    }
+
+    .open span::after {
+        top: 0px;
+        transform: rotate(135deg);
+        /* 135度と回してバツを作る */
+    }
+
+    .sp-nav {
+        position: absolute;
+        top: -20px;
+        right: 0;
+        height: 100vh;
+        width: 270px;
+        background: rgba(63, 167, 201, 0.8);
+    }
+    .sp-nav ul {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sp-nav ul li {
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+        /* padding: 15px 0; */
+    }
+    .sp-nav a {
+        display: block;
+        padding: 1em 2em;
+        color: white;
+        text-decoration: inherit;
+        transition: background 0.6s;
+    }
+    .sp-nav a:hover {
+        background: #3fa7c9;
+    }
+
+    .skills_wrap,
+    .box_1wrap,
+    .op_wrap {
         display: block;
     }
+    .skills_wrap li {
+        width: auto;
+    }
+    .design-wrap,
+    .coding-wrap{
+        width: auto;
+    }
+    .op {
+        width: auto;
+    }
+    .design-wrap {
+        margin-bottom: 100px;
+    }
+
+    /* 上の波 */
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    .content {
+        height: 30vh;
+    }
+
+    /* フォームnav */
+    .progressbar .item {
+        font-size: 11px;
+        line-height: 1.4;
+        padding: 10px 0;
+    }
+    .progressbar .item:not(:last-child)::before,
+    .progressbar .item:not(:last-child)::after {
+        border-width: 25px;
+        border-left-width: 12px;
+    }
+    .pagetop {
+        display: none;
+    }
+
+    /* わたしスタート */
+    .profile ul{
+        display: block;
+    }
+    .decoration-line {
+        display: none;
+    }
+    /* .sp_webdesigner_icon {
+        position: absolute;
+        top: 450px;
+        right: -200px;
+        width: 50%; */
+    }
+    .shape {
+        /* left: 0%;
+        right: 0%; */
+        /* position: absolute;
+        /* top: 30px; */ */
+        left: 23px;
+        /* animation: shape 40s linear infinite; */
+    }
+
+    .Ilove{
+        background-image: images/sp_text_shape@2x.png;
+    }
+    /* .me{
+        position: absolute;
+    }
+
+    .webdesigner_icon {
+        position: relative;
+        bottom: -50px;
+        right: 10px;
+    }
+    .mewrap{
+    width: auto;
+    } */
+
+    /* .mewrap,
+    .about-right {
+        width: auto;
+        margin: auto;
+    } */
+
 }
