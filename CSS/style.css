@@ -1088,8 +1088,11 @@ html {
     left: 0%;
     right: 0%;
 }
-.fish_wave {
+.fish_wrap {
     width: 100%;
+    position: relative;
+}
+.fish_wave{
     position: relative;
 }
 .Ilove {
@@ -1155,8 +1158,8 @@ html {
 .tate {
     writing-mode: vertical-rl;
     position: absolute;
-    top: 150px;
-    left: 300px;
+    top: 450px;
+    left: -50px;
     /* padding-left: 20px;
     display: block;
     /* padding-top: -2000px; */
@@ -1444,6 +1447,7 @@ font-size: 18px;
 
     .Ilove{
         background-image: images/sp_text_shape@2x.png;
+        margin-top: 50px;
     }
     /* .me{
         position: absolute;
