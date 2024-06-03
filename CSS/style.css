@@ -1184,12 +1184,25 @@ html {
 }
 .banner-img {
     width: 70%;
+    margin: 0 auto;
     /* margin-top: 500px: */
     /* text-align: center; */
     /* align-items: center; */
     padding-top: 300px;
     display: block;
     position: relative;
+}
+
+.work-ul{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+}
+.work-li{
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 10px;
+    /* align-self: flex-start; */
 }
 /* .hairsalon-main {
     width: 950px;
@@ -1198,6 +1211,7 @@ html {
 .overview {
     width: 70%;
     margin: 0 auto;
+    padding-top: 50px;
     padding-bottom: 300px;
 }
 h3 span {
@@ -1286,7 +1300,7 @@ font-size: 18px;
 .sp-nav {
     display: none;
 }
-/*　画面サイズ768px以下になったらタテに戻って横幅100%になる/////////////////////////////　*/
+/* 画面サイズ768px以下になったらタテに戻って横幅100%になる */
 @media screen and (max-width: 767px) {
     .pc-nav,
     .top_wave,
@@ -1449,6 +1463,12 @@ font-size: 18px;
         background-image: images/sp_text_shape@2x.png;
         margin-top: 50px;
     }
+    .about-right {
+        /* width: 100%; */
+        margin: 0 auto;
+        /* text-align: center; */
+        /* padding-left: 50px; */
+    }
     /* .me{
         position: absolute;
     }
@@ -1466,6 +1486,14 @@ font-size: 18px;
     .about-right {
         width: auto;
         margin: auto;
+    } */
+
+    /* .work-ul{
+        display: block;
+    }
+    .work-li{
+        display: block;
+        /* margin: 10px; */
     } */
 
 }
