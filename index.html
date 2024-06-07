@@ -33,38 +33,39 @@
     </div>
 
     <main class="main">
-        <header id="header">
-            <div class="top_wave">
-                <img src="images/header@2x.png" alt="波のような白い枠">
-            </div>
-            <div class="header_wrap">
-                <h1 class="pc-logo"><img src="images/PC_logo.svg" alt="亀のロゴ"></h1>
-                <nav class="pc-nav">
-                    <ul>
-                        <li><a href="#skills">SKILLS</a></li>
-                        <li><a href="#works">WORKS</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </nav>
-                <div class="hamburger"><span></span></div>
+        <section class="header" id="header">
+            <header>
+                <div class="top_wave">
+                    <img src="images/header@2x.png" alt="波のような白い枠">
+                </div>
+                <div class="header_wrap">
+                    <h1 class="pc-logo"><a href="#header"><img src="images/PC_logo.svg" alt="亀のロゴ"></a></h1>
+                    <nav class="pc-nav">
+                        <ul>
+                            <li><a href="#skills">SKILLS</a></li>
+                            <li><a href="#works">WORKS</a></li>
+                            <li><a href="about.html">ABOUT</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                    <div class="hamburger"><span></span></div>
 
-                <nav class="sp-nav">
-                    <ul>
-                        <li><a href="#skills">SKILLS</a></li>
-                        <li><a href="#works">WORKS</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#contact">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+                    <nav class="sp-nav">
+                        <ul>
+                            <li><a href="#skills">SKILLS</a></li>
+                            <li><a href="#works">WORKS</a></li>
+                            <li><a href="about.html">ABOUT</a></li>
+                            <li><a href="#contact">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        </section>
 
 
         <picture>
             <source srcset="images/SP_FV@2x-100.jpg" media="(max-width:767px)">
             <img src="images/mv@2x-100.jpg" alt="ヤシの木の写真" class="mv slide-bottom show">
-            </div>
         </picture>
         <div class="scroll fuwafuwa">
             <img src="images/scroll@2x.png" alt="scrollと矢印の画像">
@@ -235,7 +236,12 @@
 
 
             <div class="pc_main_favorite">
-                <a href="about.html"><img src="images/pc_main@2x.png" alt="私の好きなものたち"></a>
+                <a href="about.html">
+                    <picture>
+                        <source srcset="images/main_sp_about@2x.png" media="(max-width:767px)" alt="私の好きなものたち">
+                        <img src="images/pc_main@2x.png" alt="私の好きなものたち">
+                    </picture>
+                </a>
             </div>
             <a href="about.html" class="morebtn">もっと見る</a>
             <div class="waving">
@@ -272,24 +278,18 @@
                     action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfMZaJ2etstNyx8nalCtyvHlosg3ujeRVG1-Sx6EDYSQkytXg/formResponse"
                     name="入力画面" class="info-wrap" target="hidden_iframe" onsubmit="submitted=true;">
                     <div class="contact-item"><label>お名前</label><span class="need">必須</span></div>
-                    <input type="text" placeholder="お名前" class="contact_box" name="entry.745829346" id="name"
-                        placeholder="山田 太郎" required>
-                    <!-- <input type="text" name="entry.745829346" id="name" placeholder="山田 太郎" required /> -->
+                    <input type="text" placeholder="お名前" class="contact_box" name="entry.745829346" id="name" required>
 
                     <div class="contact-item"><label>フリガナ</label></div>
-                    <input type="text" placeholder="フリガナ" class="contact_box" name="entry.153658154" id="kana"
-                        placeholder="ヤマダ タロウ" required>
-                    <!-- <input type="text" name="entry.153658154" id="kana" placeholder="ヤマダ タロウ" required /> -->
+                    <input type="text" placeholder="フリガナ" class="contact_box" name="entry.153658154" id="kana" required>
 
                     <div class="contact-item"><label>メールアドレス</label><span class="need">必須</span></div>
                     <input type="email" placeholder="info@gmail.com" class="contact_box" name="entry.1128961027"
-                        id="mail" placeholder="info@gmail.com" required>
-                    <!-- <input type="email" name="entry.1128961027" id="mail" placeholder="info@gmail.com" required /> -->
+                        id="mail" required>
 
                     <div class="contact-item"><label>お問い合わせ内容</label><span class="need">必須</span></div>
                     <input type="text" placeholder="お問い合わせ内容を入力してください" class="contact_box_big" name="entry.915204827"
-                        id="contents" placeholder="info@gmail.com" required>
-                    <!-- <input name="entry.915204827" id="contents" placeholder="info@gmail.com" required /> -->
+                        id="contents" required>
 
                     <p class="ppagree"><input type="checkbox" name="with-consent" id="with-consent">
                         <label for="with-consent"><a href="privacypolicy.html">プライバシーポリシー</a>に同意する</label>
@@ -312,7 +312,7 @@
             <ul class="footer-nav">
                 <li><a href="#skills">SKILLS</a></li>
                 <li><a href="#works">WORKS</a></li>
-                <li><a href="#about">ABOUT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
             <div class="copyright">&copy; 2024 Nanako Sullivan</div>
@@ -336,11 +336,22 @@
 
     <script>
         $(function () {
-            //ロ➖ド上5秒後にアニメーションを非表示にする
+            //ロ➖ド上3秒後にアニメーションを非表示にする
             setTimeout(function () {
                 $('.loading-content').fadeOut(600);
-            }, 5000);
+            }, 3000);
         });
+
+        const webStorage = function () {
+            if (sessionStorage.getItem('visit')) {
+                $(".loading-bg").css("display", "none");
+            } else {
+                sessionStorage.setItem('visit', 'true');
+                $(".loading-bg").delay(4000).fadeOut(4000);
+            }
+        }
+        webStorage();
+
 
 
         // アコーディオン
